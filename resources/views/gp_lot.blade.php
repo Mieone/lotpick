@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<script type="text/javascript">
+$(document).ready(function () {
+setTimeout(function(){
+            $("input#lot_id").focus();},100);
+});
+</script>
 <div class="container">
     <div class="row">
 
@@ -11,7 +17,7 @@
 				{{Session::get('message')}}
                 <div class="panel-body">
                 <div class="form-horizontal">
-
+<div id="al_msg" style="background-color:#69c07a;color:#006400;padding-top:5px;padding-bottom:5px;text-align:center;display: none;margin-bottom:10px;" >  </div>
 					<input type="hidden" class="form-control" name="token" id="token" value="{{csrf_token()}}" >
 
                         <div class="form-group{{ $errors->has('gp_number') ? ' has-error' : '' }}">
@@ -83,21 +89,36 @@ $("#lot_id").keypress(function(e) {
 				data:{gp_number:gp_number,lot_id:lot_id},
 				dataType:'json',
 				success: function(result){
+					 $("#al_msg").show();
+					   $("#al_msg").html(result.message);
+					     setTimeout(function(){
+                         $("#al_msg").html('');
+						$( "#al_msg" ).hide( "slow", function() {
+						  });
+					   }, 2000);
+					   
 					if(result.status=='1')
 					{
 						$("#lot_id").val('');
 						$("#gp_lot").load("<?php echo url('update_lot_gp/'); ?>"+'/'+gpid);
 					}
 					else{
-						alert(result.message);
+						//alert(result.message);
 					    $("#lot_id").val('');
 					}
-
+                    $('#lot_id').focus();
 				  }
 				});
 		 }
 		 else{
-			 alert("Please enter lot number");
+			  $("#al_msg").show();
+					   $("#al_msg").html("Please enter lot number");
+					     setTimeout(function(){
+                         $("#al_msg").html('');
+						$( "#al_msg" ).hide( "slow", function() {
+						  });
+					   }, 2000);
+			
 		 }
     }
 	else{

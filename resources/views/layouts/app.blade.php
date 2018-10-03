@@ -16,12 +16,12 @@
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
- <script src="./js/jquery.min.js"></script>
+ <script src="./public/js/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
   <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
- <link href="./css/style.css" rel="stylesheet" >
- <link href="./fonts.css" rel="stylesheet" />
+ <link href="./public/css/style.css" rel="stylesheet" >
+ <link href="./public/fonts.css" rel="stylesheet" />
 
     <style type="text/css">
       body {
@@ -86,11 +86,11 @@
                 </ul>
             </div> -->
 			 <div class="collapse navbar-collapse" id="app-navbar-collapse" >
-         <div class="logo"><img src="./images/logo.png" /></div>
+         <div class="logo"><img src="./public/images/logo.png" /></div>
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
 
-                        <li id="ven" class="<?php if($active_tab=="vendor"){ echo "active"; } ?>" ><a href="{{ url('/vendor') }}">Vendor </a></li>
+                        <li id="ven" class="<?php if($active_tab=="vendor"){ echo "active"; } ?>" ><a href="{{ url('/add_vendor') }}">Vendor </a></li>
                         <li id="gpp" class="<?php if($active_tab=="gp"){ echo "active"; } ?>" ><a href="{{ url('/gp') }}">Recive Lot</a></li>
 						<li id="adlot" class="<?php if($active_tab=="lotloc"){ echo "active"; } ?>" ><a href="{{ url('/add_lat_location') }}">Assign Location</a></li>
 						<li id="lotlo"  class="<?php if($active_tab=="lot"){ echo "active"; } ?>" ><a href="{{ url('/lat_location') }}">View Lot Status</a></li>

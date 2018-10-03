@@ -175,7 +175,7 @@ input[type="date"], input[type="time"], input[type="datetime-local"], input[type
 }
 
 .lat_location .navbar-nav{
-	float: right;
+	float: left;
 }
 
 .lat_location .navbar-nav > li {

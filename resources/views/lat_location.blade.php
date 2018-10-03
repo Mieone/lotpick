@@ -7,11 +7,17 @@
 		color: #ffffff;
 }
 </style>
+<script type="text/javascript">
+$(document).ready(function () {
+setTimeout(function(){
+            $("input#lot_id").focus();},100);
+});
+</script>
 <div class="container">
     <div class="row" >
 	 <div class="col-md-10 col-md-offset-1">
 		 <div class="pick" style="background-color:#ffffff;padding-bottom:15px;">
-	 <div class="lat_location" style="background-color:#a2df51;margin-bottom:20px;">
+	 <div class="lat_location" style="background-color:#95959b;margin-bottom:20px;">
 		 <div class="">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
@@ -26,7 +32,7 @@
 	    <input type="hidden" class="form-control" name="token" id="token" value="{{csrf_token()}}" >
         <div class="col-md-12">
             <div class="panel panel-default" >
-			 <div id="al_msg" style="background-color:#69c07a;color:#006400;padding-top:5px;padding-bottom:5px;text-align:center;" >  </div>
+			 <div id="al_msg" style="background-color:#69c07a;color:#006400;padding-top:5px;padding-bottom:5px;text-align:center;display: none;" >  </div>
                 <div class="panel-heading" style="background-color:#A9A9A9;color:#006400">Lot & Locations & GP  </div>
 
 				{{Session::get('message')}}
@@ -89,6 +95,7 @@ $("#lot_id").keypress(function(e) {
 
 					if(result.status=='1')
 					{
+						  $("#location_id").focus();
 					}
 					else{
 						$("#lot_id").val('');
@@ -140,6 +147,7 @@ $("#location_id").keypress(function(e) {
 						$("#tab").load('<?php echo url('update_pick'); ?>');
 					    $("#lot_id").val('');
 					    $("#location_id").val('');
+						$("#lot_id").focus();
 						 $("#al_msg").show();
 					      $("#al_msg").html(result.message);
 					      setTimeout(function(){

@@ -34,7 +34,7 @@ Route::post('/save_lot', 'Gpcontroller@store_lot');
 Route::get('/update_lot_gp/{gpid}', 'Gpcontroller@update_lot_gp');
 Route::get('/house', 'Warehouse@index');
 Route::post('/house_save', 'Warehouse@store');
-Route::get('/vendor', 'Vendor@index');
+Route::get('/add_vendor', 'Vendor@index');
 Route::post('/vendor_save', 'Vendor@store');
 Route::get('/lot', 'Lotdetails@index');
 Route::get('/profile', 'UserController@profile');

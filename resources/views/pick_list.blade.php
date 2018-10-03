@@ -11,7 +11,7 @@
     <div class="row">
 	 <div class="col-md-10 col-md-offset-1">
  <div class="pick" style="background-color:#ffffff;padding-bottom:15px;">
-	 <div class="lat_location" style="background-color:#a2df51;margin-bottom:20px;">
+	 <div class="lat_location" style="background-color:#95959b;margin-bottom:20px;">
         <!-- Left Side Of Navbar -->
 				<input type="hidden" class="form-control" name="token" id="token" value="{{csrf_token()}}" >
                 <ul class="nav navbar-nav">
@@ -23,7 +23,7 @@
 
         <div class="col-md-12 ">
             <div class="panel panel-default" >
-			<div style="background-color:#69c07a;color:#006400;padding-top:5px;padding-bottom:5px;text-align:center;" id="up_msg"> </div>
+			<div style="background-color:#69c07a;color:#006400;padding-top:5px;padding-bottom:5px;text-align:center;display: none;" id="up_msg"> </div>
                 <div class="panel-heading" style="background-color:#A9A9A9;color:#006400">Lot & Locations & GP  </div>
 
 				{{Session::get('message')}}

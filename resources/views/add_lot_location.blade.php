@@ -1,6 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+
+<script type="text/javascript">
+$(document).ready(function () {
+	
+	//fou();
+	$("#al_msg").hide();
+	//$(this).next(':input').focus()
+//document.getElementById("lot_id").focus();
+//setTimeout(function(){ fou(); }, 3000);
+setTimeout(function(){
+            $("input#lot_id").focus();},100);
+});
+function fou(){
+
+	$("#lot_id").focus();
+}
+</script>
 <div class="container">
     <div class="row">
 
@@ -11,7 +28,8 @@
                 <div class="panel-body">
                   <div class="form-horizontal">
                   {{Session::get('message')}}
-				  <div id="al_msg" style="background-color:#69c07a;color:#006400;padding-top:5px;padding-bottom:5px;text-align:center;" >  </div>
+				  
+				  <div id="al_msg" style="background-color:#69c07a;color:#006400;padding-top:5px;padding-bottom:5px;text-align:center;display: none" >  </div>
                   <!-- <form class="form-horizontal" role="form" method="POST" action="{{ url('/save_lot_loc') }}">
                         {{ csrf_field() }} -->
 
@@ -20,7 +38,7 @@
                             <label for="lot_id" class="col-md-4 control-label" style="margin-top:15px">Lot ID</label>
 
                             <div class="col-md-6" style="margin-top:15px">
-                                <input  type="text" class="form-control" name="lot_id" id="lot_id" value=""  >
+                                <input  type="text" class="form-control" tabindex="-1" name="lot_id" id="lot_id" value="" >
 
                                 @if ($errors->has('lot_id'))
                                     <span class="help-block">
@@ -62,12 +80,12 @@
 
 
 <script type="text/javascript">
-$(document).ready(function () {
-	$("#al_msg").hide();
-});
+
 $("#lot_id").keypress(function(e) {
+
     if(e.which == 13 || e.which == 0) {
-      var route="http://localhost:8000/check_lot_id";
+		var route="<?php echo url('check_lot_id/'); ?>";
+     // var route="http://localhost:8000/check_lot_id";
 	 var token=$("#token").val();
 	 var lot_id=$("#lot_id").val();
 	 var lotid =lot_id.split(" ").join("_");
@@ -93,6 +111,9 @@ $("#lot_id").keypress(function(e) {
 
 						$("#lot_id").val('');
 					}
+					else{
+						$('#location_id').focus();
+					}
 
 				  }
 				});
@@ -111,13 +132,14 @@ $("#lot_id").keypress(function(e) {
 		 }
     }
 	else{
-		//console.log(e.which);
+		console.log("fi");
 	}
 });
 
 $("#location_id").keypress(function(e) {
     if(e.which == 13 || e.which == 0) {
-     var route="http://localhost:8000/save_lot_loc";
+			var route="<?php echo url('save_lot_loc/'); ?>";
+     //var route="http://localhost:8000/save_lot_loc";
 	 var token=$("#token").val();
 	 var lot_id=$("#lot_id").val();
 	 var location_id=$("#location_id").val();
@@ -147,7 +169,7 @@ $("#location_id").keypress(function(e) {
 						$("#lot_id").val('');
 					    $("#location_id").val('');
 					}
-
+                     $('#lot_id').focus();
 				  }
 				});
 		 }

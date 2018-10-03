@@ -20,9 +20,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-<script src="./js/additional-methods.min.js"></script>
-<link href="./css/style.css" rel="stylesheet" >
-<link href="./fonts.css" rel="stylesheet" />
+<script src="./public/js/additional-methods.min.js"></script>
+<link href="./public/css/style.css" rel="stylesheet" >
+<link href="./public/fonts.css" rel="stylesheet" />
   <style type="text/css">
       body {
       font-family: 'Montserrat-Regular';
@@ -83,12 +83,12 @@
                 </ul>
             </div> -->
             <div class="collapse navbar-collapse" id="app-navbar-collapse" >
-              <div class="logo"><img src="./images/logo.png" /></div>
+              <div class="logo"><img src="./public/images/logo.png" /></div>
                      <!-- Left Side Of Navbar -->
                            <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
 
-                        <li><a href="{{ url('/vendor') }}">Vendor</a></li>
+                        <li><a href="{{ url('/add_vendor') }}">Vendor</a></li>
                         <li class="<?php if($active_tab=="gp"){ echo "active"; } ?>" ><a href="{{ url('/gp') }}">Recive Lot</a></li>
 						<li><a href="{{ url('/add_lat_location') }}">Assign Location</a></li>
 						<li><a href="{{ url('/lat_location') }}">View Lot Status</a></li>
